@@ -61,8 +61,8 @@ If the gift's price is lower than the budget store the gift in the child's
 received gifts list.
 Update gift quantity & child' assigned budget.
 
-* NiceScore
-Builds an object used to store a child's average score and its optional param.
+NiceScore
+-> Builds an object used to store a child's average score and its optional param.
 Contains:
 - nice score value
 - bonus value 

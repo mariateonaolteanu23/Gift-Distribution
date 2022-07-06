@@ -7,8 +7,8 @@ The children are clients, the gifts are products & the distributor is the user.
 ## IMPLEMENTATION
 
 # MAIN COMPONENTS
-* DeliveryData
-Acts as a database that stores the loaded input data.
+DeliveryData
+-> Acts as a database that stores the loaded input data.
 It can be accessed from everywhere.
 The mentioned database contains:
 - the current year of the delivery (first year will be 0)
@@ -18,39 +18,39 @@ The mentioned database contains:
 - budget unit
 - delivery strategy -> the order in which the gift distribution will be done
 
-* DeliveryPlanner
-Acts as a planner that manages deliveries over the years.
+DeliveryPlanner
+-> Acts as a planner that manages deliveries over the years.
 The planner will store:
 - the simulation's number of years given by the input
 - a sequence of callbacks that ensure all delivery data will be updated anually
 
-* DeliveryAction
-Handles the delivery itself.
+DeliveryAction
+-> Handles the delivery itself.
 The class above contains:
 - a sequence of callbacks that set up all data(children's status, averagescore, 
 budget unit, children's assigned budgets) neccessary for an annual delivery
 - a list of observers (will be notified after every executed delivery)
 
-* ScoreStrategy
-Used to compute a child's average score based on child's status.
+ScoreStrategy
+-> Used to compute a child's average score based on child's status.
 Implementations:
 - BabyScoreStrategy -> average score = 10
 - KidScoreStrategy -> average score = average of previous scores  
 - TeenScoreStrategy -> average score = weighted average of previous scores
 - YoungAdultStrategy -> average score will not be computed
 
-* ScoreStrategyFactory
-Creates ScoreStrategy objects based on the child's status.
+ScoreStrategyFactory
+-> Creates ScoreStrategy objects based on the child's status.
 
-* DeliveryStrategy
-Used to deliver/distribute gifts to all children in acertain order.
+DeliveryStrategy
+-> Used to deliver/distribute gifts to all children in acertain order.
 Implementation:
 - IdDeliveryStrategy -> deliver gifts based on children's ids
 - NiceScoreDeliveryStrategy -> deliver gifts based on children's scores
 - NiceScoreCityDeliveryStrategy -> deliver gifts based on the cities score ranking
 
-* DeliveryStrategyFactory
-Creates DeliveryStrategy objects based the delivery's strategy type.
+DeliveryStrategyFactory
+-> Creates DeliveryStrategy objects based the delivery's strategy type.
 
 Standard delivery details:
 Get assigned budget for the child.
